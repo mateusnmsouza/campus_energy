@@ -1,0 +1,16 @@
+setwd("/home/CampusEnergy/Energy")
+library(readr)
+detail = read_csv("./Email/email_detail.csv")
+detail = subset(detail, select = -TreatmentType)
+result = read_csv("./Data.Processing/result.csv")
+result = subset(result, Week=="2018-08")
+dim(result)
+dim(detail)
+final = merge(result, detail, by="Room", all.x=T)
+dim(final)
+dup_ind = which(duplicated(final$Room))
+if (length(dup_ind) != 0)
+	final = final[-dup_ind, ]
+final = subset(final, select = c("Room", "Week", "TreatmentType", "ClusterType", "RoomType", "Usage", "All.Neighbors", "Efficient.Neighbors", "Standing", "ComparePercent"))
+
+write.csv(final, "./Result/031418_results.csv", row.names=F)
