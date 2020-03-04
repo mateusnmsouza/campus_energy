@@ -1439,11 +1439,11 @@ sum Q`x'
 sca mean = r(mean)
 histogram Q`x', discrete percent xline(`=round(scalar(mean), 0.01)') ///
 		xlabel(1 "Never" 2 "Rarely" 3 "Sometimes" 4 "Often" 5 "All The Time", labcolor(black) angle(45)) ///
-		xlabel(`=round(scalar(mean), 0.01)', add custom labcolor(red) labsize(vsmall)) ///
+		text(25 `=round(scalar(mean), 0.01)+0.05' "Avg. = `=round(scalar(mean), 0.01)'", placement(e) color(red) size(small) orient(horizontal) just(left)) ///
 		xscale(range(1(1)5)) start(1) ///
 		graphregion(color(white)) bgcolor(white) bcolor(blue%30) barw(0.5) ///
 		title("`: variable label Q`x''") xtitle("")
-graph export "./Results/PostSurvey_hist_Q`x'.png", replace
+graph export "./Results/PostSurvey_hist_Q`x'.png", replace width(2500)
 }
 
 forval x = 18/24 {
@@ -1451,11 +1451,11 @@ sum Q`x'
 sca mean = r(mean)
 histogram Q`x', discrete percent xline(`=round(scalar(mean), 0.01)') ///
 		xlabel(1 "Not at All Informative" 2 "Slightly Informative" 3 "Moderately Informative" 4 "Very Informative" 5 "Extremely Informative", labcolor(black) angle(45)) ///
-		xlabel(`=round(scalar(mean), 0.01)', add custom labcolor(red) labsize(vsmall)) ///
+		text(25 `=round(scalar(mean), 0.01)+0.05' "Avg. = `=round(scalar(mean), 0.01)'", placement(e) color(red) size(small) orient(horizontal) just(left)) ///
 		xscale(range(1(1)5))start(1) ///
 		graphregion(color(white)) bgcolor(white) bcolor(blue%30) barw(0.5) ///
 		title("`: variable label Q`x''") xtitle("")
-graph export "./Results/PostSurvey_hist_Q`x'.png", replace
+graph export "./Results/PostSurvey_hist_Q`x'.png", replace width(2500)
 }
 
 forval x = 25/31 {
@@ -1464,11 +1464,11 @@ sca mean = r(mean)
 local means : di %6.2f scalar(mean)
 histogram Q`x', discrete percent xline(`means') ///
 		xlabel(1 "Very Disappointed" 2 "Moderately Disappointed" 3 "Slightly Disappointed" 4 "Neither Disappointed nor Pleased" 5 "Slightly Pleased" 6 "Moderately Pleased" 7 "Very Pleased", labcolor(black) angle(45) labsize(vsmall)) ///
-		xlabel(`means', add custom labcolor(red) labsize(vsmall) format(%6.2f)) ///
+		text(25 `=round(scalar(mean), 0.01)+0.05' "Avg. = `=round(scalar(mean), 0.01)'", placement(e) color(red) size(small) orient(horizontal) just(left)) ///
 		xscale(range(1(1)5)) start(1) ///
 		graphregion(color(white)) bgcolor(white) bcolor(blue%30) barw(0.5) ///
 		title("`: variable label Q`x''") xtitle("")
-graph export "./Results/PostSurvey_hist_Q`x'.png", replace
+graph export "./Results/PostSurvey_hist_Q`x'.png", replace width(2500)
 }
 
 
