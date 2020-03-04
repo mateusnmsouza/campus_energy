@@ -408,7 +408,7 @@ coefplot temp_bydate, vertical ///
 					xtitle("Date") ytitle("Temperature (Degrees Fahrenheit)") legend(off) title("Average Outdoor Temperature by Date") ///
 					graphregion(color(white)) bgcolor(white) xlabel(1 "09/13/17" 31 "10/13/17" 62 "11/13/17" 92 "12/13/17" 123 "01/13/18" ///
 					154 "02/13/18" 182 "03/13/18" 213 "04/13/18", angle(45) labsize(small))
-graph export "P:\iSEE\CampusEnergy2018\Results\outdoortemp_bydate.png", replace
+graph export ".\Results\outdoortemp_bydate.png", replace
 
 
 
@@ -418,7 +418,7 @@ est sto temp_byhour
 coefplot temp_byhour, vertical xlabel(1 "0" 2 "1" 3 "2" 4 "3" 5 "4" 6 "5" 7 "6" 8 "7" 9 "8" 10 "9" 11 "10" 12 "11" 13 "12" 14 "13" 15 "14" 16 "15" 17 "16" 18 "17" 19 "18" 20 "19" 21 "20" 22 "21" 23 "22" 24 "23") ///
 			xtitle("Hour of Day") ytitle("Temperature (Degrees Fahrenheit)") legend(off) title("Average Outdoor Temperature by Hour of Day") ///
 			graphregion(color(white)) bgcolor(white)
-graph export "P:\iSEE\CampusEnergy2018\Results\outdoortemp_byhour.png", replace
+graph export ".\Results\outdoortemp_byhour.png", replace
 
 clear
 use `clean_campuseneregy'
